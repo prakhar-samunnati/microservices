@@ -1,73 +1,101 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# NestJS Microservices Project
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This repository contains a NestJS microservices architecture with the following services:
 
-## Description
+- `user`: Handles user-related operations.
+- `communication`: Manages communication between users.
+- `gateway`: Acts as the API gateway to route requests to the appropriate services.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Each microservice is included in this repository as a submodule.
 
-## Installation
+## Table of Contents
 
-```bash
-$ npm install
-```
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Dependencies](#install-dependencies)
+  - [Running the Services](#running-the-services)
+  - [Installing Submodule Dependencies](#installing-submodule-dependencies)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Running the app
+## Getting Started
 
-```bash
-# development
-$ npm run start
+### Prerequisites
 
-# watch mode
-$ npm run start:dev
+Make sure you have the following installed on your system:
 
-# production mode
-$ npm run start:prod
-```
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/)
+- [Git](https://git-scm.com/)
 
-## Test
+### Clone the Repository
+
+To clone this repository along with its submodules, use the following command:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone --recurse-submodules https://github.com/your-username/your-repo-name.git
 ```
 
-## Support
+If you've already cloned the repository without submodules, you can initialize and update them with:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+git submodule update --init --recursive
+```
 
-## Stay in touch
+### Install Dependencies
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Navigate to the root directory of the repository and install the dependencies:
 
-## License
+```bash
+npm install
+```
+This will install `concurrently` and any other dependencies required to run the services.
 
-Nest is [MIT licensed](LICENSE).
+### Installing Submodule Dependencies
+
+Before running each microservice, make sure to install its dependencies. Navigate to each submodule directory and run:
+
+```bash
+cd user
+npm install
+cd ../communication
+npm install
+cd ../gateway
+npm install
+```
+
+
+### Running the Services
+
+You can start all the services simultaneously using the following command:
+
+```bash
+npm run start:all
+```
+
+This command will run the `user`, `communication`, and `gateway` services concurrently.
+
+
+
+This will ensure that all dependencies for each microservice are installed properly.
+
+## Project Structure
+
+The repository is structured as follows:
+
+```
+microservices/
+├── user/              # User service
+├── communication/     # Communication service
+├── gateway/           # Gateway service
+├── package.json       # NPM scripts and dependencies
+└── README.md          # This README file
+```
+
+Each service is a Git submodule and has its own directory.
+
+
+This README provides comprehensive instructions for getting started with the project, including cloning the repository with submodules, installing dependencies, running the services, and contributing to the project. It also includes a section on installing submodule dependencies, which ensures that all required dependencies for each microservice are properly installed.
