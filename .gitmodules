@@ -1,0 +1,9 @@
+[submodule "user"]
+	path = user
+	url = git@github.com:prakhar-samunnati/user.git
+[submodule "communication"]
+	path = communication
+	url = git@github.com:prakhar-samunnati/communication-channel.git
+[submodule "gateway"]
+	path = gateway
+	url = git@github.com:prakhar-samunnati/gateway.git
